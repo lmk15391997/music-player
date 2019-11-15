@@ -1,8 +1,15 @@
 # music-player
 
-> A Vue.js project
+### 基于Vue的本地音乐播放器(适配移动端)
 
-## Build Setup
+## 开发环境
+
+- vscode
+- vue-li脚手架
+- nodejs
+
+
+## 上手
 
 ``` bash
 # install dependencies
@@ -11,11 +18,18 @@ npm install
 # serve with hot reload at localhost:8080
 npm run dev
 
-# build for production with minification
-npm run build
-
-# build for production and view the bundle analyzer report
-npm run build --report
 ```
+### 注意
 
-For a detailed explanation on how things work, check out the [guide](http://vuejs-templates.github.io/webpack/) and [docs for vue-loader](http://vuejs.github.io/vue-loader).
+> sass-loader 的版本是7.3.1 最新版本无法运行
+
+### To-do List
+- [x] 拖动选择本地音乐（可多选）
+- [x] 歌曲控制部分
+- [x] Disk旋转效果
+- [x] 歌名以及进度条显示
+
+- [ ] 切歌、进度条显示bug未修复部分
+
+- [ ] 歌词显示
+- [ ] 移动端测试显
