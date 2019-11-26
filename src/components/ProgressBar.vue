@@ -1,6 +1,6 @@
 <template>
   <div class="progress" :class="{progress__playing:isPlaying}">
-    <h2 class="progress_title">{{name | formatName}}</h2>
+    <marquee scrollamount="1px" class="progress_title">{{name | formatName}}</marquee>
     <p class="progress_text">
         {{ position | formatTime}} /{{duration |formatTime}}
     </p>
@@ -27,7 +27,7 @@ export default {
     },
     filters:{
         formatName(val){
-            return val.replace(/\.mp3$/,'')
+            return val.replace(/\.mp3|.flac$/,'')
         },
         formatTime(val){
             const min = Math.floor(val/60)
@@ -66,7 +66,8 @@ export default {
   font-size: 12px;
   font-weight: bold;
   overflow: hidden;
-  text-overflow: ellipsis;
+  text-overflow: ellipsis; 
+  white-space:nowrap; 
 }
 .progress_text {
   padding-top: 2px;

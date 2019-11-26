@@ -7,7 +7,7 @@
       :style="{transfrom:stopMatrix,
       backgroundImage:coverUrl ?`url(${coverUrl})`:''}"
     />
-    <input id="file" ref="file" type="file" accept=".mp3" multiple @change="handleChange" />
+    <input id="file" ref="file" type="file" accept="" multiple @change="handleChange" />
   </div>
 </template>
 
@@ -37,13 +37,12 @@ export default {
         const [, sin, cos] = match || [0, 0, 0];
         const deg = ((Math.atan2(cos, sin) / 2 / Math.PI) * 360) % 360;
         const styles = [...document.styleSheets];
-        console.log(styles)
+        // console.log(styles)
         styles.forEach(style => {
           const rules = [...style.cssRules];
           rules.forEach(rule => {
             if (rule.type === rule.KEYFRAMES_RULE && rule.name === "rotate") {
-              
-            console.log(rule)
+            // console.log(rule)
               rule.cssRules[0].style.transform = `rotate(${deg}deg)`;
               rule.cssRules[1].style.transform = `rotate(${deg + 360}deg)`;
             }
