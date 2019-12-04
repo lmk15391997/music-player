@@ -17,7 +17,6 @@ export default new Vuex.Store({
   getters: {},
   mutations: {
     togglePlay (state, toggle) {
-      console.log(toggle)
       state.isPlaying = toggle !== undefined ? toggle : !state.isPlaying
     },
     changeCover (state) {

@@ -14,7 +14,6 @@
 <script>
 import { mapState, mapMutations } from "vuex";
 import { player } from "../player";
-
 export default {
   data() {
     return {

@@ -7,7 +7,7 @@ class Dispatcher {
     }
     emit(...args) {
         this.handlers.forEach(handler => {
-            console.log(handler(...args))
+            handler(...args)
         })
     }
 }
@@ -29,7 +29,6 @@ class Player {
         this.onPause = new Dispatcher()
         this.onChange = new Dispatcher()
         this.onReady = new Dispatcher()
-
     }
     async readAudioBuffer(file) {
         return new Promise((resolve, reject) => {
@@ -62,13 +61,18 @@ class Player {
             return
         }
         const source = this.audioContext.createBufferSource()
+        // let gainNode=this.audioContext.createGain()
+        // gainNode.gain.value=[0.1]
+        // gainNode.connect(this.audioContext.destination)
         source.buffer = this.current.buffer
         source.onended = this.next.bind(this)
         source.connect(this.audioContext.destination)
         source.start(0, this.current.offset)
+        console.log(this.audioContext)
         this.current.source = source
         this.current.start = this.audioContext.currentTime
-        console.log(this)
+        console.log(this.current)
+
         this.onPlay.emit(this)
     }
     pause() {
@@ -82,7 +86,7 @@ class Player {
         this.current.source = null
         this.current.offset = this.position
         this.current.start = null
-        console.log(this)
+       
         this.onPause.emit(this)
     }
     stop() {

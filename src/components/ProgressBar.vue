@@ -27,7 +27,7 @@ export default {
     },
     filters:{
         formatName(val){
-            return val.replace(/\.mp3|.flac$/,'')
+            return val.replace(/\.mp3$|.flac$/,'')
         },
         formatTime(val){
             const min = Math.floor(val/60)
