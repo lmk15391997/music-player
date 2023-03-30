@@ -1,0 +1,21 @@
+name: send wx message
+on: 
+  push:
+  # 定时器 可以指定时间触发工作流
+  # https://crontab.guru/examples.html 有一些例子可供参考
+  #schedule: 
+  #  - cron: '0 22 * * *'
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout 🛎️
+      uses: actions/checkout@v2.3.1
+
+    - name: Install node
+      uses: actions/setup-node@v2
+      with:
+        node-version: '14'
+	# 触发 node 命令
+    - name: Send
+      run: npm install && node test
